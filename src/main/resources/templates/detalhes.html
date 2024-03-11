@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Informações do aluno</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/detalhes.css}">
+    </head>
+    <body>
+        <header th:insert="nav.html :: nav"></header>
+
+        <div class="container">
+            <h1>Informações do aluno</h1>
+            <p>ID: <span th:text="${aluno.id}"></p>
+            <p>Nome: <span th:text="${aluno.nome}"></p>
+            <p>Sobrenome: <span th:text="${aluno.sobrenome}"></p>
+            <p>CPF: <span th:text="${aluno.cpf}"></p>
+            <p>Turma: <span th:text="${aluno.turma}"></p>
+
+            <hr>
+
+            <form th:action="@{/gravar-advertencia}" th:object="${advertencia}" method="POST">
+                <p>Advertencia: <input type="text" th:field="${advertencia.advertencia}" /> </p>
+                <input type="hidden" th:field="${aluno.id}" />
+                <p><input type="submit" value="Enviar"/></p>
+            </form>
+
+            <hr>
+
+            <h1>Lista de advertencias</h1>
+            <ul>
+                <li th:each="reg : ${advertencias}">
+                    <p>Advertencia: <span th:text="${reg.advertencia}"></p>
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>

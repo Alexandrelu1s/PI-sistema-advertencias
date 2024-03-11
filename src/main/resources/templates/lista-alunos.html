@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/lista-alunos.css}">
+    </head>
+    <body>
+        <header th:insert="nav.html :: nav"></header>
+        <div class="container">
+            <h1>Lista de livros</h1>
+            <table>
+                <thead>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Turma</th>
+                <th>Detalhes</th>
+                </thead>
+                <tbody>
+                    <tr th:each="aluno : ${listaAlunos}" >
+                        <td th:text="${aluno.id}"></td>
+                        <td th:text="${aluno.nome}"></td>
+                        <td th:text="${aluno.sobrenome}"></td>
+                        <td th:text="${aluno.turma}"></td>
+                        <td>
+                            <a th:href="@{'/exibir?id=' + ${aluno.id}}">Exibir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+</body>
+</html>

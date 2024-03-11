@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Cadastro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/cadastro.css}">
+    </head>
+    <body>
+        <header th:insert="nav.html :: nav"></header>
+        <div class="container">
+            <h1>Cadastrar Aluno</h1>
+            <form id="alunoForm" th:action="@{/salvar}" th:object="${aluno}" method="post">
+                <p>Nome <input type="text" th:field="${aluno.nome}" /> </p>
+                <p>Sobrenome <input type="text" th:field="${aluno.sobrenome}" /> </p>
+                <p>CPF <input type="text" th:field="${aluno.cpf}" /> </p>
+                <p>Turma <input type="text" th:field="${aluno.turma}" /> </p>
+                <p><input type="submit" value="Cadastrar"/></p>
+            </form>
+        </div>
+ 
+        <script>
+            document.getElementById("alunoForm").addEventListener("submit", function (event) {
+                // Impedir o envio padrão do formulário
+                event.preventDefault();
+
+                // Obter os valores dos campos
+                var nome = document.getElementById("nome").value.trim();
+                var sobrenome = document.getElementById("sobrenome").value.trim();
+                var cpf = document.getElementById("cpf").value.trim();
+                var turma = document.getElementById("turma").value.trim();
+
+                // Verificar se os campos estão preenchidos
+                if (nome === "" || sobrenome === "" || cpf === "" || turma === "") {
+                    alert("Por favor, preencha todos os campos.");
+                    return false;
+                }
+
+
+                // Se a validação for bem-sucedida, o formulário será enviado
+                this.submit();
+            });
+        </script>
+    </body>
+</html>
