@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <header th:insert="nav.html :: nav"></header>
         <div class="container">
             <h1>Cadastrar Aluno</h1>
-            <form id="alunoForm" th:action="@{/salvar}" th:object="${aluno}" method="post">
+            <form id="alunoForm" th:action="@{/gravar}" th:object="${aluno}" method="post">
                 <p>Nome <input type="text" th:field="${aluno.nome}" /> </p>
                 <p>Sobrenome <input type="text" th:field="${aluno.sobrenome}" /> </p>
                 <p>CPF <input type="text" th:field="${aluno.cpf}" /> </p>
@@ -22,6 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <p><input type="submit" value="Cadastrar"/></p>
             </form>
         </div>
+       
  
         <script>
             document.getElementById("alunoForm").addEventListener("submit", function (event) {
