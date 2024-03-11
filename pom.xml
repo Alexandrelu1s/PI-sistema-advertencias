@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ProjetoIntegrador</name>
 	<description>Sistema de advertências de alunos</description>
+        <packaging>war</packaging>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -64,6 +65,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+                <finalName>${artifactId}</finalName>
 	</build>
 
 </project>
